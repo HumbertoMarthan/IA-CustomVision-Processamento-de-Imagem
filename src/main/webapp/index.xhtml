@@ -12,10 +12,17 @@
 <h:body>
 	
 	<p:growl autoUpdate="true" showDetail="true" showSummary="true"/>
-	<h:form enctype="multipart/form-data">
-		<p:fileUpload value="#{uploadBean.uploadedFile}" mode="simple" skinSimple="true" />
-		<p:commandButton value="Enviar" ajax="false"
+	<h:form id="form" enctype="multipart/form-data">
+		<div align="center" style="margin-top: auto; margin-bottom: auto;">
+		<p:panel header="Comparador de Cor de Olhos"  menuTitle="Menu" toggleTitle="true"
+		footer="O software faz comparação da cor de um olho com 4 tipos que foram treinados: Preto,Azul,Verde,Castanho">
+		<p:outputLabel value="Anexe sua Foto pelo Botão" /> <br></br> 
+		
+		<p:fileUpload label="Escolher"  value="#{uploadBean.uploadedFile}" mode="simple" skinSimple="true" />
+		<p:commandButton value="Enviar" ajax="false" update="@form"
 			actionListener="#{uploadBean.upload}" />
+		</p:panel>
+		</div>
 	</h:form>
 </h:body>
 </html>
