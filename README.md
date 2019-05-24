@@ -1,22 +1,17 @@
+Atentar-se ao link ((https://www.customvision.ai))
+
+Na sua versão free só pode ter dois projetos ao mesmo tempo cada vez que sobe pelo mvn compile exec:java, gera um novo training para as imagens da pasta resources/respectivasImagens
+
+
 ---
 services: cognitive-services, custom-vision
 platforms: java
 author: areddish
 ---
 
-# Custom Vision SDK Sample ##
+## Getting Started (Open-Source)
 
-Sample code for image classification and object detection for Custom Vision, an Azure Cognitive Service.
-- Creates an image classification project, upload images, train it and make a prediction.
-- Creates an object detection project, upload images, train it and make a prediction.
-
-## Features
-
-This project framework provides examples for the **Custom Vision SDK** for the [Custom Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/)
-
-## Getting Started
-
-### Prerequisites
+### Pre requisites
 
 - An account at [Custom Vision Service](https://www.customvision.ai)
 - Maven
@@ -39,4 +34,3 @@ If you don't have a Microsoft Azure subscription you can get a FREE trial accoun
 
 ---
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
