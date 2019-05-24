@@ -11,7 +11,7 @@
 
 <h:body>
 	
-	<p:growl autoUpdate="true" showDetail="true" showSummary="true"/>
+	<p:growl autoUpdate="true" showDetail="true" showSummary="true" life="10000" />
 	<h:form id="form" enctype="multipart/form-data">
 		<div align="center" style="margin-top: auto; margin-bottom: auto;">
 		<p:panel header="Comparador de Cor de Olhos"  menuTitle="Menu" toggleTitle="true"
@@ -21,6 +21,10 @@
 		<p:fileUpload label="Escolher"  value="#{uploadBean.uploadedFile}" mode="simple" skinSimple="true" />
 		<p:commandButton value="Enviar" ajax="false" update="@form"
 			actionListener="#{uploadBean.upload}" />
+			<p:commandButton actionListener="#{uploadBean.runSample()}" ajax="false"/>
+			
+			
+			
 		</p:panel>
 		</div>
 	</h:form>
