@@ -19,9 +19,9 @@
 		<p:outputLabel value="Anexe sua Foto pelo Botão" /> <br></br> 
 		
 		<p:fileUpload label="Escolher"  value="#{uploadBean.uploadedFile}" mode="simple" skinSimple="true" />
-		<p:commandButton value="Enviar" ajax="false" update="@form"
-			actionListener="#{uploadBean.upload}" />
-			<p:commandButton actionListener="#{uploadBean.runSample()}" ajax="false"/>
+		<p:commandButton value="Enviar" ajax="false" 
+			actionListener="#{uploadBean.testar()}" />
+			
 			
 			
 			
