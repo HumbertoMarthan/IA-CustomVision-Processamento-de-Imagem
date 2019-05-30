@@ -73,10 +73,6 @@ private void AddImageToProject(Trainings trainer, Project project, String fileNa
 		ImageFileCreateEntry file = new ImageFileCreateEntry().withName(fileName).withContents(contents);
 
 		ImageFileCreateBatch batch = new ImageFileCreateBatch().withImages(Collections.singletonList(file));
-
-		// If Optional region is specified, tack it on and place the tag there,
-		// otherwise
-		// add it to the batch.
 		if (regionValues != null) {
 			Region region = new Region().withTagId(tag).withLeft(regionValues[0]).withTop(regionValues[1])
 					.withWidth(regionValues[2]).withHeight(regionValues[3]);

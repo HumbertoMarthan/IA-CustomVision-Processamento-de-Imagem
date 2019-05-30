@@ -7,25 +7,96 @@
 
 	<title>Pagina Teste</title>
 
+<style type="text/css">
+.ui-growl-title {
+    font-weight: bold;
+    padding: 0 0 7px 0;
+    display: block;
+}
+
+body .ui-growl .ui-growl-item-container.ui-growl-info {
+    background-color: #b7d8b7;
+    border: 0 none;
+    color: #212121;
+}
+
+body .ui-growl .ui-growl-item-container {
+    margin: 0 0 1em 0;
+    -webkit-box-shadow: 0 3px 0.429em 0 rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0 3px 0.429em 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 3px 0.429em 0 rgba(0, 0, 0, 0.16);
+}
+
+.ui-growl-image { 
+   font-family: 'primeicons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-indent: 0px !important;
+    text-align: center;
+    background: none;
+    display: inline-block;
+    font-size: 1.25em;
+    font-size: 3.429em;
+    color: #212121;
+    width: auto;
+    height: auto;
+}
+</style>
+
+
+
 </h:head>
 
+
 <h:body>
-	
-	<p:growl autoUpdate="true" showDetail="true" showSummary="true" life="10000" />
+
+	<p:growl autoUpdate="true" showDetail="true" showSummary="true"
+		life="20000"  />
 	<h:form id="form" enctype="multipart/form-data">
 		<div align="center" style="margin-top: auto; margin-bottom: auto;">
-		<p:panel header="Comparador de Cor de Olhos"  menuTitle="Menu" toggleTitle="true"
-		footer="O software faz comparação da cor de um olho com 4 tipos que foram treinados: Preto,Azul,Verde,Castanho">
-		<p:outputLabel value="Anexe sua Foto pelo Botão" /> <br></br> 
-		
-		<p:fileUpload label="Escolher"  value="#{uploadBean.uploadedFile}" mode="simple" skinSimple="true" />
-		<p:commandButton value="Enviar" ajax="false" 
-			actionListener="#{uploadBean.testar()}" />
-			
-			
-			
-			
-		</p:panel>
+			<p:panel header="Comparador de Cor de Olhos" menuTitle="Menu"
+				toggleTitle="true"
+				footer="O software faz comparação da cor de um olho com 4 tipos que foram treinados: Preto,Azul,Verde,Castanho">
+				<p:outputLabel value="Anexe sua Foto pelo Botão" />
+				<br></br>
+
+				<p:fileUpload label="Escolher" value="#{uploadBean.uploadedFile}"
+					mode="simple" skinSimple="true" />
+				<p:commandButton value="Enviar" ajax="false" rendered="true"
+					actionListener="#{uploadBean.testar()}" update="projetoInicio"
+					onclick	="setTimeout(projetoCriado, 1000)"/>
+				<br />
+
+				<script>
+					function projetoCriado() {
+						alert("O projeto está sendo criado no Custom Vision");
+						setTimeout(addImagens, 3000);
+					}
+				
+					function addImagens(){
+						alert("As imagens Azul, Castanho e Preto estão sendo adicionadas ao treino");
+						setTimeout(treinando, 5000);
+					}
+					
+					function treinando(){
+						alert('As Imagens estão sendo treinadas!');
+						setTimeout(demora,7000)
+					}
+					function demora(){
+						alert('O treinamento pode demorar alguns segundos, depende de sua conexão');
+					}
+					</script>
+				
+
+
+			</p:panel>
 		</div>
 	</h:form>
 </h:body>
