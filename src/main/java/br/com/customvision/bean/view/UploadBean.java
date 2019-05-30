@@ -82,7 +82,7 @@ private void AddImageToProject(Trainings trainer, Project project, String fileNa
 		}
 
 		trainer.createImagesFromFiles(project.id(), batch);
-	}
+}
 
 
 public void testar() {
@@ -125,6 +125,12 @@ public void testar() {
 						.withProjectId(project.id())
 						.withName("Castanho")
 						.execute();
+				
+				//preto Tag
+				Tag pretoTag = trainer.createTag()
+						.withProjectId(project.id())
+						.withName("Preto")
+						.execute();
 
 				for (int i = 1; i <= 10; i++) {
 					String fileName = "cast_" + i + ".jpg";
@@ -136,6 +142,12 @@ public void testar() {
 					String fileName = "azul_" + i + ".jpg";
 					byte[] contents = GetImage("/Azul", fileName);
 					AddImageToProject(trainer, project, fileName, contents, azulTag.id(), null);
+				}
+				
+				for (int i = 1; i <= 10; i++) {
+					String fileName = "preto" + i + ".jpg";
+					byte[] contents = GetImage("/Preto", fileName);
+					AddImageToProject(trainer, project, fileName, contents, pretoTag.id(), null);
 				}
 
 				System.out.println("Treinando Imagens Adicionadas......");
@@ -163,7 +175,7 @@ public void testar() {
 					System.out.println(
 							String.format("\t%s: %.2f%%", prediction.tagName(), prediction.probability() * 100.0f));
 					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage("Upload completo", "A cor do olho "+ prediction.tagName() +" Tem probabilidade"+ prediction.probability() * 100.0f));
+							new FacesMessage("Upload completo", "A cor do olho "+ prediction.tagName() +" tem probabilidade: "+ prediction.probability() * 100.0f+"%"));
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
